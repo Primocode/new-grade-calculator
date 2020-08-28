@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.function-menu {
+  width: 300px;
+  background-color: #ececec;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.adding-selected-school-subjects {
+  margin: 10px 0px 10px 0px;
+}
+
+.adding-selected-school-subjects .adding-selected-school-subjects-btn {
+  background-color: #0099ff;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 10px 10px 10px;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.adding-school-subjects {
+  margin: 0px 0px 10px 0px;
+}
+
+.adding-school-subjects .adding-school-subjects-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: #0099ff;
+  border-radius: 10px;
+  padding: 9px;
+}
+
+.adding-school-subjects .adding-school-subjects-container .adding-school-subjects-input {
+  padding: 1px;
+  height: 35px;
+  font-size: 17px;
+  border: none;
+}
+
+.adding-school-subjects .adding-school-subjects-container .adding-school-subjects-btn {
+  border: none;
+  background-color: #80ccff9c;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 0px 15px 0px 15px;
+}
+
+.average-of-all-subjects {
+  background-color: #0099ff;
+  color: white;
+  font-size: 17px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.average-of-all-subjects .average-of-all-subjects-text {
+  margin-bottom: 8px;
+}
+
+.average-of-all-subjects .average-of-all-subjects-result {
+  background-color: #80ccff9c;
+  margin-left: 5px;
+  padding: 0px 10px 0px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 20px;
+  border-radius: 5px;
+}
+/*# sourceMappingURL=style.css.map */

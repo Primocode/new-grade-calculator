@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+
+}
+
+.function-menu {
+    width: 300px;
+    background-color: rgb(236, 236, 236);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.adding-selected-school-subjects {
+    margin: 10px 0px 10px 0px;
+    .adding-selected-school-subjects-btn {
+        background-color: #0099ff;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        padding: 10px 10px 10px 10px;
+        font-size: 17px;
+        cursor: pointer;
+
+    }
+}
+
+.adding-school-subjects {
+    margin: 0px 0px 10px 0px;
+    .adding-school-subjects-container {
+        display: flex;
+        width: fit-content;
+        background-color: #0099ff;
+        border-radius: 10px;
+        padding: 9px;
+        .adding-school-subjects-input {
+            padding: 1px;
+            height: 35px;
+            font-size: 17px;
+            border: none;
+        }
+        .adding-school-subjects-btn {
+            border: none;
+            background-color: #80ccff9c;
+            color: white;
+            cursor: pointer;
+            font-size: 18px;
+            padding: 0px 15px 0px 15px;
+        }
+    }
+}
+
+.average-of-all-subjects {
+    background-color: #0099ff;
+    color: white;
+    font-size: 17px;
+    border-radius: 10px;
+    padding: 10px;
+    .average-of-all-subjects-text {
+        margin-bottom: 8px;
+    }
+    .average-of-all-subjects-result {
+        background-color: #80ccff9c;
+        margin-left: 5px;
+        padding: 0px 10px 0px 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        border-radius: 5px;
+    }
+}
