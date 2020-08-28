@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="style.css">
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/f99c5d740e.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <main>
@@ -15,21 +17,43 @@
             <div class="adding-selected-school-subjects">
                 <button class="adding-selected-school-subjects-btn">Wybierz przedmioty</button>
             </div>
-            <div class="adding-school-subjects">
-                <div class="adding-school-subjects-container">
-                    <input type="text" class="adding-school-subjects-input">
-                    <button class="adding-school-subjects-btn">Dodaj</button>
+            <section class="content">
+                <div class="table">
+                    <div class="name-of-the-school-subject">
+                        <h3>Matematyka</h3>
+                        <div class="button-container">
+                            <button class="edit-name">
+                                <span class="fas fa-pencil-alt"></span>
+                            </button>
+                            <button class="removing-a-school-subject">
+                                x
+                            </button>
+                        </div>
+                    </div>
+                    <!-- <div class="rating-and-weight">
+                        <input type="number" class="school-grade-value" placeholder="Ocena">
+                        <input type="number" class="weight-of-the-rating-value" placeholder="Waga"> 
+                        <button class="adding"></button>
+                    </div> -->
+                    <button class="adding-btn">+</button>
                 </div>
-            </div>
-            <div class="average-of-all-subjects">
-                <div class="average-of-all-subjects-text">
-                    <p>Średnia wszystkich przedmiotów</p>
+            </section>
+            <section class="menu-bottom-content">
+                <div class="adding-school-subjects">
+                    <div class="adding-school-subjects-container">
+                        <input type="text" class="adding-school-subjects-input" placeholder="Podaj przedmiot szkolny">
+                        <button class="adding-school-subjects-btn">Dodaj</button>
+                    </div>
                 </div>
-                <div class="average-of-all-subjects-result">
-                    3,50
+                <div class="average-of-all-subjects">
+                    <div class="average-of-all-subjects-text">
+                        <p>Średnia wszystkich przedmiotów</p>
+                    </div>
+                    <div class="average-of-all-subjects-result">
+                        3,50
+                    </div>
                 </div>
-
-            </div>
+            </section>
         </section>
     </main>
 

@@ -5,18 +5,7 @@
 }
 
 .function-menu {
-  width: 300px;
   background-color: #ececec;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
 }
 
 .adding-selected-school-subjects {
@@ -33,8 +22,127 @@
   cursor: pointer;
 }
 
+.content .table {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  padding: 5px 0px 5px 0px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.content .table .name-of-the-school-subject {
+  margin-left: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: #006CCB;
+  color: white;
+  min-width: 300px;
+  padding: 12px;
+  font-size: 19px;
+  border-radius: 5px;
+}
+
+.content .table .button-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.content .table .button-container .edit-name {
+  font-size: 14px;
+  background-color: #02437D;
+  color: white;
+  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 25px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+  border-radius: 5px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0px 2px 0px 2px;
+}
+
+.content .table .button-container .removing-a-school-subject {
+  font-size: 20px;
+  background-color: #02437D;
+  color: white;
+  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 25px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 0px 2px 0px 2px;
+}
+
+.content .table .button-container .removing-a-school-subject:hover {
+  background-color: #01325e;
+}
+
+.content .table .adding-btn {
+  background-color: #0099ff;
+  color: white;
+  border-radius: 50%;
+  min-width: 45px;
+  height: 45px;
+  font-size: 35px;
+  border: none;
+  margin-left: 10px;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.content .table .adding-btn:hover {
+  background-color: #278ed2;
+}
+
+.menu-bottom-content {
+  margin: 0px 10px 0px 10px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
 .adding-school-subjects {
-  margin: 0px 0px 10px 0px;
+  margin: 0px 0px 5px 0px;
 }
 
 .adding-school-subjects .adding-school-subjects-container {
@@ -71,9 +179,11 @@
   font-size: 17px;
   border-radius: 10px;
   padding: 10px;
+  width: 300px;
 }
 
 .average-of-all-subjects .average-of-all-subjects-text {
+  text-align: center;
   margin-bottom: 8px;
 }
 

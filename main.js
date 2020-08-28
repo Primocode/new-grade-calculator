@@ -15,7 +15,6 @@ const addingAnItem = () => {
     const schoolSubjectValue = document.querySelector('.adding-school-subjects-input').value
 
     console.log(schoolSubjectValue)
-
 }
 
 document.querySelector('.adding-school-subjects-btn').addEventListener('click', addingAnItem)
