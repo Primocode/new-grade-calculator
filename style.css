@@ -4,6 +4,20 @@
   font-family: 'Roboto', sans-serif;
 }
 
+.message {
+  display: none;
+  position: fixed;
+  margin: 15px;
+  width: 250px;
+  background-color: #ac1d35;
+  border: 1px solid red;
+  border-radius: 5px;
+  color: white;
+  font-size: 15px;
+  text-align: left;
+  padding: 15px;
+}
+
 .function-menu {
   background-color: #ececec;
 }
@@ -44,7 +58,7 @@
   background-color: #006CCB;
   color: white;
   min-width: 300px;
-  padding: 12px;
+  padding: 15px;
   font-size: 19px;
   border-radius: 5px;
 }
@@ -76,7 +90,7 @@
 }
 
 .content .table .button-container .removing-a-school-subject {
-  font-size: 20px;
+  font-size: 14px;
   background-color: #02437D;
   color: white;
   border: none;
@@ -89,11 +103,63 @@
           justify-content: center;
   cursor: pointer;
   border-radius: 5px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin: 0px 2px 0px 2px;
 }
 
 .content .table .button-container .removing-a-school-subject:hover {
   background-color: #01325e;
+}
+
+.content .table .rating-and-weight {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100px;
+  margin-left: 10px;
+}
+
+.content .table .rating-and-weight .school-grade-value {
+  border: none;
+  border: 2px solid #0099ff;
+  height: 50%;
+  text-align: center;
+  font-size: 15px;
+  background-color: #80ccff9c;
+}
+
+.content .table .rating-and-weight .weight-of-the-rating-value {
+  font-size: 15px;
+  text-align: center;
+  border: none;
+  height: 50%;
+  border: 1px 2px 0px 1px solid #0099ff;
+  border-bottom: 2px solid #0099ff;
+  border-right: 2px solid #0099ff;
+  border-left: 2px solid #0099ff;
+  background-color: #80ccff9c;
+}
+
+.content .table .rating-and-weight input::-webkit-input-placeholder {
+  color: #006CCB;
+}
+
+.content .table .rating-and-weight input:-ms-input-placeholder {
+  color: #006CCB;
+}
+
+.content .table .rating-and-weight input::-ms-input-placeholder {
+  color: #006CCB;
+}
+
+.content .table .rating-and-weight input::placeholder {
+  color: #006CCB;
 }
 
 .content .table .adding-btn {
@@ -104,8 +170,39 @@
   height: 45px;
   font-size: 35px;
   border: none;
-  margin-left: 10px;
   cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  right: 26px;
+}
+
+.content .table .adding-btn:hover {
+  background-color: #278ed2;
+}
+
+.content .table .school-grade {
+  background-color: #407fd1;
+  color: white;
+  min-width: 57px;
+  min-height: 57px;
+  border-radius: 5px;
+  max-height: 50px;
+  display: inline-block;
+}
+
+.content .table .school-grade .school-grade-value {
+  font-size: 27px;
+  text-align: center;
+  border-bottom: 2px solid white;
+  height: 35px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -117,8 +214,43 @@
           align-items: center;
 }
 
-.content .table .adding-btn:hover {
-  background-color: #278ed2;
+.content .table .school-grade .weight-school-grade-value {
+  position: relative;
+  left: 8px;
+  font-size: 11px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  top: 3px;
+}
+
+.content .table .removing-school-grades {
+  background-color: #02437D;
+  border: none;
+  color: white;
+  height: 17px;
+  width: 17px;
+  cursor: pointer;
+  font-size: 15px;
+  position: relative;
+  float: right;
+  bottom: 37px;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 
 .menu-bottom-content {
@@ -162,6 +294,23 @@
   height: 35px;
   font-size: 17px;
   border: none;
+  width: 210px;
+}
+
+.adding-school-subjects .adding-school-subjects-container .adding-school-subjects-input::-webkit-input-placeholder {
+  text-align: center;
+}
+
+.adding-school-subjects .adding-school-subjects-container .adding-school-subjects-input:-ms-input-placeholder {
+  text-align: center;
+}
+
+.adding-school-subjects .adding-school-subjects-container .adding-school-subjects-input::-ms-input-placeholder {
+  text-align: center;
+}
+
+.adding-school-subjects .adding-school-subjects-container .adding-school-subjects-input::placeholder {
+  text-align: center;
 }
 
 .adding-school-subjects .adding-school-subjects-container .adding-school-subjects-btn {
@@ -189,7 +338,6 @@
 
 .average-of-all-subjects .average-of-all-subjects-result {
   background-color: #80ccff9c;
-  margin-left: 5px;
   padding: 0px 10px 0px 10px;
   display: -webkit-box;
   display: -ms-flexbox;
