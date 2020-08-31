@@ -8,34 +8,58 @@ const values = {
 const generatingSchoolItems = () => {
     deletingAllAddedSchoolItems();
     let singleSchoolSubjects = [...new Set(values.schoolSubject)]
-
     singleSchoolSubjects.forEach(schoolSubjectName => {
         const table = document.createElement('div')
         table.className = "table";
         document.querySelector('.content').appendChild(table);
         table.dataset.whichItem = schoolSubjectName;
 
-        const viewDOM = `
-        <div class="name-of-the-school-subject">
-            <h3>${schoolSubjectName}</h3>
-        <div class="button-container">
-            <button class="edit-name">
-                <span class="fas fa-pencil-alt"></span>
-            </button>
-            <button class="removing-a-school-subject">
-                <span class="far fa-trash-alt"></span>
-            </button>
-        </div>
-        </div>
-        <div class="rating-and-weight">
-            <input type="number" class="school-grade-value" data-which-school-grade="${schoolSubjectName}" placeholder="Ocena">
-            <input type="number" class="weight-of-the-rating-value" data-which-weight="${schoolSubjectName}" placeholder="Waga"> 
-        </div>
-        <button class="adding-btn" data-which="${schoolSubjectName}">+</button>`
-    
-        table.innerHTML += viewDOM;
+        const nameSchoolSubject = document.createElement('div');
+        nameSchoolSubject.className = "name-of-the-school-subject";
+        table.appendChild(nameSchoolSubject);
+
+        const nameSchoolSubjectName = document.createElement('h3');
+        nameSchoolSubjectName.textContent = schoolSubjectName;
+        nameSchoolSubject.appendChild(nameSchoolSubjectName);
+
+        const buttonContainer = document.createElement('div');
+        buttonContainer.className = "button-container";
+        nameSchoolSubject.appendChild(buttonContainer);
+
+        const editName = document.createElement('button');
+        editName.className = "edit-name";
+        buttonContainer.appendChild(editName);
+        editName.innerHTML = `<span class="fas fa-pencil-alt"></span>`;
+
+        const removingASchoolSubject = document.createElement('button');
+        removingASchoolSubject.className = "removing-a-school-subject";
+        buttonContainer.appendChild(removingASchoolSubject);
+        removingASchoolSubject.innerHTML = `<span class="far fa-trash-alt"></span>`;
+
+        const ratingAndWeight = document.createElement('div');
+        ratingAndWeight.className = "rating-and-weight";
+        table.appendChild(ratingAndWeight);
+
+        const schoolGradeValue = document.createElement('input');
+        schoolGradeValue.className = "school-grade-value";
+        schoolGradeValue.dataset.whichSchoolGrade = schoolSubjectName;
+        schoolGradeValue.placeholder = "Ocena";
+        ratingAndWeight.appendChild(schoolGradeValue)
+
+        const weightTheRatingValue = document.createElement('input');
+        weightTheRatingValue.className = "weight-of-the-rating-value";
+        weightTheRatingValue.dataset.whichWeight = schoolSubjectName;
+        weightTheRatingValue.placeholder = "Waga";
+        ratingAndWeight.appendChild(weightTheRatingValue)
+
+        const addingBtn = document.createElement('button');
+        addingBtn.className = "adding-btn";
+        addingBtn.dataset.which = schoolSubjectName;
+        addingBtn.textContent = "+";
+        table.appendChild(addingBtn);
         callForAddingSchoolGrades()
     })
+    addingATile();
 }
 
 const deletingAllAddedSchoolItems = () => {
@@ -43,7 +67,6 @@ const deletingAllAddedSchoolItems = () => {
         item.remove();
     })
 }
-
 
 const addingAnItem = () => {
     const schoolSubjectValue = document.querySelector('.adding-school-subjects-input').value
@@ -64,19 +87,20 @@ const addingAnItem = () => {
 
 document.querySelector('.adding-school-subjects-btn').addEventListener('click', addingAnItem)
 
+
+const tabColors = ["#D44242", "#7F5CB4", "#E8B200","#00A1E8", "#6BAB4C", "#16D900"];
 const addingATile = () => {
     deleteAllGrades();
     values.schoolSubject.forEach(item => {
         let indexes = values.whichSchoolSubject.reduce(function(a,e,i){try{a[e].push(i)}catch(_){a[e]=[i]};return a},{});
         if (indexes[item]) {
             indexes[item].forEach(elements => {
-                // console.log(document.querySelector(`[data-which-item="${item}"]`))
-                // console.log("oceny " + values.schoolGrade[elements]);
-                // console.log("Wagi " + values.weightSchoolGrade[elements]);
                 const tableDOM = document.querySelector(`[data-which-item="${item}"]`)
                 const schoolGradeDOM = document.createElement('div');
                 schoolGradeDOM.className = "school-grade";
                 tableDOM.appendChild(schoolGradeDOM);
+
+                schoolGradeDOM.style.backgroundColor = tabColors[values.schoolGrade[elements] -1];
 
                 const schoolGradeValue = document.createElement('h4');
                 schoolGradeValue.className = "school-grade-value";
@@ -98,8 +122,6 @@ const addingATile = () => {
     callForAddingSchoolGrades();
 }
 
-// 
-
 const deleteAllGrades = () => {
     document.querySelectorAll('.school-grade').forEach(item => {
         item.remove();
@@ -107,9 +129,6 @@ const deleteAllGrades = () => {
 }
 
 const addingSchoolGrades = () => {
-    console.log(document.querySelector(`[data-which-school-grade="${event.target.dataset.which}"]`).value)
-    console.log(document.querySelector(`[data-which-weight="${event.target.dataset.which}"]`).value)
-
     const schoolGradeValue = document.querySelector(`[data-which-school-grade="${event.target.dataset.which}"]`).value;
     const schoolWeight = document.querySelector(`[data-which-weight="${event.target.dataset.which}"]`).value;
 
@@ -125,7 +144,6 @@ const addingSchoolGrades = () => {
                 errorMessage("Waga nie może być mniejsza od 1 ani większa od 99");
             }
             else {
-                console.log("wszytko działa")
                 values.whichSchoolSubject.push(event.target.dataset.which);
                 values.schoolGrade.push(schoolGradeValue);
                 values.weightSchoolGrade.push(schoolWeight);
@@ -137,13 +155,11 @@ const addingSchoolGrades = () => {
             }
         }
     }
-
 }
 
 const callForAddingSchoolGrades = () => {
     document.querySelectorAll('.adding-btn').forEach(item => item.addEventListener('click', addingSchoolGrades));
 }
-
 
 const errorMessage = (mess) => {
     const message = document.querySelector('.message')

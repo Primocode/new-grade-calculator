@@ -249,7 +249,6 @@ body {
 }
 
 .content .table .school-grade {
-  background-color: #407fd1;
   color: white;
   min-width: 57px;
   min-height: 57px;
@@ -292,7 +291,7 @@ body {
 }
 
 .content .table .removing-school-grades {
-  background-color: #02437D;
+  background-color: #464646b0;
   border: none;
   color: white;
   height: 17px;
