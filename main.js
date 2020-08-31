@@ -57,6 +57,13 @@ const generatingSchoolItems = () => {
         addingBtn.dataset.which = schoolSubjectName;
         addingBtn.textContent = "+";
         table.appendChild(addingBtn);
+
+        const countingResult = document.createElement('div');
+        countingResult.className = "counting-result";
+        table.appendChild(countingResult);
+
+        countingResult.innerHTML = `<span class="counting-result-span">średnia</span><span class="counting-result-value" data-which-avg="${schoolSubjectName}"></span>`
+
         callForAddingSchoolGrades()
     })
     addingATile();
@@ -83,6 +90,7 @@ const addingAnItem = () => {
         errorMessage("Nazwa przedmiotu szkolnego nie może być pusta");
     }
     generatingSchoolItems();
+    countingTheWeightedAverage();
 }
 
 document.querySelector('.adding-school-subjects-btn').addEventListener('click', addingAnItem)
@@ -152,9 +160,30 @@ const addingSchoolGrades = () => {
                 document.querySelector(`[data-which-weight="${event.target.dataset.which}"]`).value = null;
 
                 addingATile();
+                countingTheWeightedAverage();
             }
         }
     }
+}
+
+const countingTheWeightedAverage = () => {
+    values.schoolSubject.forEach(item => {
+        let indexes = values.whichSchoolSubject.reduce(function(a,e,i){try{a[e].push(i)}catch(_){a[e]=[i]};return a},{});
+        let weight = 0;
+        let avg = 0;
+        if (indexes[item]) {
+            indexes[item].forEach(item => {
+                weight += Number(values.weightSchoolGrade[item]);
+                avg += Number(values.schoolGrade[item]) * Number(values.weightSchoolGrade[item])
+            })
+        }
+        if ((avg / weight).toFixed(2) > 0) {
+            document.querySelector(`[data-which-avg="${item}"]`).textContent = (avg / weight).toFixed(2);
+        }
+        else {
+            document.querySelector(`[data-which-avg="${item}"]`).textContent = 0;
+        }
+    })
 }
 
 const callForAddingSchoolGrades = () => {
