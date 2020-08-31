@@ -3,6 +3,7 @@ const values = {
     whichSchoolSubject: [],
     schoolGrade: [],
     weightSchoolGrade: [],
+    schoolGradeID: [],
 }
 
 const generatingSchoolItems = () => {
@@ -92,9 +93,7 @@ const addingAnItem = () => {
     generatingSchoolItems();
     countingTheWeightedAverage();
 }
-
 document.querySelector('.adding-school-subjects-btn').addEventListener('click', addingAnItem)
-
 
 const tabColors = ["#D44242", "#7F5CB4", "#E8B200","#00A1E8", "#6BAB4C", "#16D900"];
 const addingATile = () => {
@@ -117,6 +116,8 @@ const addingATile = () => {
 
                 const schoolGradeBtn = document.createElement('button');
                 schoolGradeBtn.className = "removing-school-grades";
+                schoolGradeBtn.dataset.id = values.schoolGradeID[elements];
+
                 schoolGradeDOM.appendChild(schoolGradeBtn);
                 schoolGradeBtn.textContent = "x";
 
@@ -127,7 +128,19 @@ const addingATile = () => {
             })
         }
     })
+    document.querySelectorAll('.removing-school-grades').forEach(item => item.addEventListener('click', deletingSchoolGrades
+    ));
     callForAddingSchoolGrades();
+}
+
+const deletingSchoolGrades = () => {
+    const index = values.schoolGradeID.indexOf(event.target.dataset.id)
+    values.schoolGrade.splice(index, 1)
+    values.schoolGradeID.splice(index, 1)
+    values.weightSchoolGrade.splice(index, 1)
+    values.whichSchoolSubject.splice(index, 1)
+    addingATile();
+    countingTheWeightedAverage();
 }
 
 const deleteAllGrades = () => {
@@ -156,6 +169,8 @@ const addingSchoolGrades = () => {
                 values.schoolGrade.push(schoolGradeValue);
                 values.weightSchoolGrade.push(schoolWeight);
 
+                values.schoolGradeID.push(Math.random().toString(36).substring(7));
+                
                 document.querySelector(`[data-which-school-grade="${event.target.dataset.which}"]`).value = null;
                 document.querySelector(`[data-which-weight="${event.target.dataset.which}"]`).value = null;
 
