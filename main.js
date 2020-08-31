@@ -1,15 +1,9 @@
 const values = {
     schoolSubject: [],
     whichSchoolSubject: [],
-    rating: [],
+    schoolGrade: [],
+    weightSchoolGrade: [],
 }
-
-// values.which.push(1)
-// values.schoolSubject.push("matematyka")
-// values.rating.push("5")
-// values.which.push(2)
-// values.schoolSubject.push("Fizyka")
-// values.rating.push("3")
 
 const generatingSchoolItems = () => {
     deletingAllAddedSchoolItems();
@@ -59,6 +53,7 @@ const addingAnItem = () => {
         }   
         else {
             values.schoolSubject.push(schoolSubjectValue);
+            document.querySelector(".adding-school-subjects-input").value = null;
         }
     }
     else {
@@ -69,10 +64,80 @@ const addingAnItem = () => {
 
 document.querySelector('.adding-school-subjects-btn').addEventListener('click', addingAnItem)
 
+const addingATile = () => {
+    deleteAllGrades();
+    values.schoolSubject.forEach(item => {
+        let indexes = values.whichSchoolSubject.reduce(function(a,e,i){try{a[e].push(i)}catch(_){a[e]=[i]};return a},{});
+        if (indexes[item]) {
+            indexes[item].forEach(elements => {
+                // console.log(document.querySelector(`[data-which-item="${item}"]`))
+                // console.log("oceny " + values.schoolGrade[elements]);
+                // console.log("Wagi " + values.weightSchoolGrade[elements]);
+                const tableDOM = document.querySelector(`[data-which-item="${item}"]`)
+                const schoolGradeDOM = document.createElement('div');
+                schoolGradeDOM.className = "school-grade";
+                tableDOM.appendChild(schoolGradeDOM);
+
+                const schoolGradeValue = document.createElement('h4');
+                schoolGradeValue.className = "school-grade-value";
+                schoolGradeDOM.appendChild(schoolGradeValue);
+                schoolGradeValue.textContent = values.schoolGrade[elements];
+
+                const schoolGradeBtn = document.createElement('button');
+                schoolGradeBtn.className = "removing-school-grades";
+                schoolGradeDOM.appendChild(schoolGradeBtn);
+                schoolGradeBtn.textContent = "x";
+
+                const weightSchoolGrade = document.createElement('h4');
+                weightSchoolGrade.className = "weight-school-grade-value";
+                schoolGradeDOM.appendChild(weightSchoolGrade);
+                weightSchoolGrade.textContent = "waga " + values.weightSchoolGrade[elements];
+            })
+        }
+    })
+    callForAddingSchoolGrades();
+}
+
+// 
+
+const deleteAllGrades = () => {
+    document.querySelectorAll('.school-grade').forEach(item => {
+        item.remove();
+    })
+}
+
 const addingSchoolGrades = () => {
-    console.log(event.target.dataset.which)
-    console.log(document.querySelector(`[data-which-school-grade="${event.target.dataset.which}"]`))
-    console.log(document.querySelector(`[data-which-weight="${event.target.dataset.which}"]`))
+    console.log(document.querySelector(`[data-which-school-grade="${event.target.dataset.which}"]`).value)
+    console.log(document.querySelector(`[data-which-weight="${event.target.dataset.which}"]`).value)
+
+    const schoolGradeValue = document.querySelector(`[data-which-school-grade="${event.target.dataset.which}"]`).value;
+    const schoolWeight = document.querySelector(`[data-which-weight="${event.target.dataset.which}"]`).value;
+
+    if (schoolGradeValue.length <= 0 || schoolWeight <= 0) {
+        errorMessage("Ocena ani waga nie mogą pozostać puste")
+    }
+    else {
+        if (schoolGradeValue > 6 || schoolGradeValue <= 0) {
+            errorMessage("Ocena nie może być mniejsza od 1 ani większa od 6")
+        }
+        else {
+            if (schoolWeight > 99 || schoolWeight <= 0) {
+                errorMessage("Waga nie może być mniejsza od 1 ani większa od 99");
+            }
+            else {
+                console.log("wszytko działa")
+                values.whichSchoolSubject.push(event.target.dataset.which);
+                values.schoolGrade.push(schoolGradeValue);
+                values.weightSchoolGrade.push(schoolWeight);
+
+                document.querySelector(`[data-which-school-grade="${event.target.dataset.which}"]`).value = null;
+                document.querySelector(`[data-which-weight="${event.target.dataset.which}"]`).value = null;
+
+                addingATile();
+            }
+        }
+    }
+
 }
 
 const callForAddingSchoolGrades = () => {
@@ -89,5 +154,9 @@ const errorMessage = (mess) => {
 	}, 2500);
 }
 
+const choiceOfSchoolSubjects = () => {
+    
+}
 
+document.querySelector('.adding-selected-school-subjects-btn').addEventListener('click', choiceOfSchoolSubjects)
 
