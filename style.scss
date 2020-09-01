@@ -22,6 +22,55 @@ body {
     padding: 15px;
 }
 
+.notification {
+    display: none;
+}
+
+.notification-active {
+    z-index: 10;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.555);
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+    .notification-container {
+        max-width: 700px;
+        background-color: white;
+        border-radius: 5px;
+        margin: 0px 8px 0px 8px;
+        h2 {
+            text-align: center;
+            margin-top: 10px;
+            color: #0099ff;
+        }
+        p {
+            color: rgb(61, 61, 61);
+            margin: 20px;
+            text-align: center;
+        }
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 15px;
+            .btn-container-style {
+                margin: 0px 5px 0px 5px;
+                background-color: #0099ff;
+                border: none;
+                color: white;
+                padding: 5px 12px 5px 12px;
+                font-size: 15px;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            .btn-container-style:hover {
+                background-color: #0081d6;
+            }
+        }
+    }
+}
+
 .choice-of-school-subjects-container {
     width: 100%;
     height: 100vh;
@@ -70,7 +119,7 @@ body {
 .adding-selected-school-subjects-content {
 
     .adding-selected-school-subjects {
-        margin: 10px 0px 0px 10px;
+        margin: 0px 0px 0px 10px;
         .adding-selected-school-subjects-btn {
             background-color: #0099ff;
             color: white;
@@ -103,7 +152,7 @@ body {
         }
         .button-container {
             display: flex;
-            .edit-name {
+            .fa-pencil-alt {
                 font-size: 14px;
                 background-color: #02437D;
                 color: white;
@@ -116,7 +165,7 @@ body {
                 align-items: center;
                 margin: 0px 2px 0px 2px;
             }
-            .removing-a-school-subject {
+            .fa-trash-alt {
                 font-size: 14px;
                 background-color: #02437D;
                 color: white;
@@ -129,7 +178,10 @@ body {
                 align-items: center;
                 margin: 0px 2px 0px 2px;
             }
-            .removing-a-school-subject:hover {
+            .fa-trash-alt:hover {
+                background-color: #01325e;
+            }
+            .fa-pencil-alt:hover {
                 background-color: #01325e;
             }
         }

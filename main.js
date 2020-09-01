@@ -27,15 +27,14 @@ const generatingSchoolItems = () => {
         buttonContainer.className = "button-container";
         nameSchoolSubject.appendChild(buttonContainer);
 
-        const editName = document.createElement('button');
-        editName.className = "edit-name";
+        const editName = document.createElement('span');
+        editName.className = "fas fa-pencil-alt";
         buttonContainer.appendChild(editName);
-        editName.innerHTML = `<span class="fas fa-pencil-alt"></span>`;
 
-        const removingASchoolSubject = document.createElement('button');
-        removingASchoolSubject.className = "removing-a-school-subject";
+        const removingASchoolSubject = document.createElement('span')
+        removingASchoolSubject.className = "far fa-trash-alt";
+        removingASchoolSubject.dataset.name = schoolSubjectName;
         buttonContainer.appendChild(removingASchoolSubject);
-        removingASchoolSubject.innerHTML = `<span class="far fa-trash-alt"></span>`;
 
         const ratingAndWeight = document.createElement('div');
         ratingAndWeight.className = "rating-and-weight";
@@ -67,6 +66,7 @@ const generatingSchoolItems = () => {
 
         callForAddingSchoolGrades()
     })
+    document.querySelectorAll('.fa-trash-alt').forEach(item => item.addEventListener('click', removalOfSchoolItems));
     addingATile();
 }
 
@@ -75,6 +75,39 @@ const deletingAllAddedSchoolItems = () => {
         item.remove();
     })
 }
+
+const removalOfSchoolItems = () => {
+    const nameSchoolSubject = event.target.dataset.name
+    document.querySelector('.remove').dataset.nameToBeDeleted = nameSchoolSubject
+    document.querySelector('.notification').classList.toggle('notification-active')
+    document.querySelector('.notification-text').textContent = `Czy napewno chcesz usunąć przedmiot szkolny o nazwie "${nameSchoolSubject}"?. Wszystkie oceny z tego przedmiotu zostaną bezpowrotnie usunięte`
+}
+
+const closingTheWindow = () => {
+    document.querySelector('.notification').className = "notification"
+}
+document.querySelector('.cancel').addEventListener('click', closingTheWindow);
+
+const permamentRemoval = () => {
+    let indexes = values.whichSchoolSubject.reduce(function(a,e,i){try{a[e].push(i)}catch(_){a[e]=[i]};return a},{});
+    const nameOfTheSchoolSubject = document.querySelector('.remove').dataset.nameToBeDeleted
+    if (indexes[nameOfTheSchoolSubject]) {
+        indexes[nameOfTheSchoolSubject].forEach(item => {
+            let indexes = values.whichSchoolSubject.reduce(function(a,e,i){try{a[e].push(i)}catch(_){a[e]=[i]};return a},{});
+            let index = indexes[nameOfTheSchoolSubject]
+            values.schoolGradeID.splice(index, 1)
+            values.schoolGrade.splice(index, 1)
+            values.weightSchoolGrade.splice(index, 1)
+            values.whichSchoolSubject.splice(index, 1)
+            addingATile();
+        })
+    }
+    values.schoolSubject.splice(values.schoolSubject.indexOf(nameOfTheSchoolSubject), 1);
+    generatingSchoolItems();
+    closingTheWindow();
+}
+
+document.querySelector('.remove').addEventListener('click', permamentRemoval);
 
 const addingAnItem = () => {
     const schoolSubjectValue = document.querySelector('.adding-school-subjects-input').value
@@ -130,6 +163,7 @@ const addingATile = () => {
     })
     document.querySelectorAll('.removing-school-grades').forEach(item => item.addEventListener('click', deletingSchoolGrades
     ));
+    countingTheWeightedAverage();
     callForAddingSchoolGrades();
 }
 
@@ -199,10 +233,15 @@ const countingTheWeightedAverage = () => {
             document.querySelector(`[data-which-avg="${item}"]`).textContent = 0;
         }
     })
+    choiceOfSchoolSubjects();
 }
 
 const callForAddingSchoolGrades = () => {
     document.querySelectorAll('.adding-btn').forEach(item => item.addEventListener('click', addingSchoolGrades));
+}
+
+const overallAverage = () => {
+
 }
 
 const errorMessage = (mess) => {
@@ -215,6 +254,15 @@ const errorMessage = (mess) => {
 }
 
 const choiceOfSchoolSubjects = () => {
+    const avgSchoolSubjects = document.querySelectorAll('.counting-result-value');
+    let avg = 0;
+    avgSchoolSubjects.forEach(item => {
+        avg += Number(item.textContent)
+
+        document.querySelector('.average-of-all-subjects-result').textContent = (avg / avgSchoolSubjects.length).toFixed(2)
+    })
+    avg = 0;
+
     
 }
 
