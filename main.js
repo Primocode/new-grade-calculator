@@ -29,6 +29,7 @@ const generatingSchoolItems = () => {
 
         const editName = document.createElement('span');
         editName.className = "fas fa-pencil-alt";
+        editName.dataset.name = schoolSubjectName;
         buttonContainer.appendChild(editName);
 
         const removingASchoolSubject = document.createElement('span')
@@ -43,12 +44,14 @@ const generatingSchoolItems = () => {
         const schoolGradeValue = document.createElement('input');
         schoolGradeValue.className = "school-grade-value";
         schoolGradeValue.dataset.whichSchoolGrade = schoolSubjectName;
+        schoolGradeValue.type = "number";
         schoolGradeValue.placeholder = "Ocena";
         ratingAndWeight.appendChild(schoolGradeValue)
 
         const weightTheRatingValue = document.createElement('input');
         weightTheRatingValue.className = "weight-of-the-rating-value";
         weightTheRatingValue.dataset.whichWeight = schoolSubjectName;
+        weightTheRatingValue.type = "number";
         weightTheRatingValue.placeholder = "Waga";
         ratingAndWeight.appendChild(weightTheRatingValue)
 
@@ -66,6 +69,7 @@ const generatingSchoolItems = () => {
 
         callForAddingSchoolGrades()
     })
+    document.querySelectorAll('.fa-pencil-alt').forEach(item => item.addEventListener('click', changeNameSchoolSubjectIcon))
     document.querySelectorAll('.fa-trash-alt').forEach(item => item.addEventListener('click', removalOfSchoolItems));
     addingATile();
 }
@@ -76,11 +80,49 @@ const deletingAllAddedSchoolItems = () => {
     })
 }
 
+const changeNameSchoolSubjectIcon = () => {
+    document.querySelector('.changing-name-change').dataset.name = event.target.dataset.name
+    document.querySelector('.changing-the-name-of-school-subjects').classList.toggle('changing-the-name-of-school-subjects-active')
+    document.querySelector('.changing-name-school-subjects-text').textContent = `Aktualna nazwa tego przedmiotu to "${event.target.dataset.name}"`
+}
+
+const changeNameSchoolSubject = () => {
+    const nameSchoolSubjectChange = document.querySelector('.changing-name-change').dataset.name
+    const changeNameValue = document.querySelector('.changing-name-input').value;
+    let indexes = values.whichSchoolSubject.reduce(function(a,e,i){try{a[e].push(i)}catch(_){a[e]=[i]};return a},{});
+
+    if (changeNameValue != "") {
+        if (values.schoolSubject.includes(changeNameValue)) {
+            errorMessage("Taka nazwa przedmiotu już jest")
+        }
+        else {
+            if (values.whichSchoolSubject.includes(nameSchoolSubjectChange)) {
+                indexes[nameSchoolSubjectChange].forEach(item => {
+                    values.whichSchoolSubject.splice(item, 1, changeNameValue);
+                })
+            }
+            values.schoolSubject.splice(values.schoolSubject.indexOf(nameSchoolSubjectChange), 1, changeNameValue);
+            cancelNameChange();
+            document.querySelector('.changing-name-input').value = null;
+            generatingSchoolItems();
+        }
+    }
+    else {
+        errorMessage("Nowa nazwa przedmiotu nie może być pusta")
+    }
+}
+document.querySelector('.changing-name-change').addEventListener('click', changeNameSchoolSubject);
+
+const cancelNameChange = () => {
+    document.querySelector('.changing-the-name-of-school-subjects').classList.toggle('changing-the-name-of-school-subjects-active')
+}
+document.querySelector('.changing-name-cancel').addEventListener('click', cancelNameChange)
+
 const removalOfSchoolItems = () => {
     const nameSchoolSubject = event.target.dataset.name
     document.querySelector('.remove').dataset.nameToBeDeleted = nameSchoolSubject
     document.querySelector('.notification').classList.toggle('notification-active')
-    document.querySelector('.notification-text').textContent = `Czy napewno chcesz usunąć przedmiot szkolny o nazwie "${nameSchoolSubject}"?. Wszystkie oceny z tego przedmiotu zostaną bezpowrotnie usunięte`
+    document.querySelector('.notification-text').textContent = `Czy na pewno chcesz usunąć przedmiot szkolny o nazwie "${nameSchoolSubject}"?. Wszystkie oceny z tego przedmiotu zostaną bezpowrotnie usunięte`
 }
 
 const closingTheWindow = () => {
@@ -233,15 +275,11 @@ const countingTheWeightedAverage = () => {
             document.querySelector(`[data-which-avg="${item}"]`).textContent = 0;
         }
     })
-    choiceOfSchoolSubjects();
+    overallAverage ();
 }
 
 const callForAddingSchoolGrades = () => {
     document.querySelectorAll('.adding-btn').forEach(item => item.addEventListener('click', addingSchoolGrades));
-}
-
-const overallAverage = () => {
-
 }
 
 const errorMessage = (mess) => {
@@ -253,18 +291,24 @@ const errorMessage = (mess) => {
 	}, 2500);
 }
 
-const choiceOfSchoolSubjects = () => {
+const overallAverage  = () => {
+    document.querySelector('.average-of-all-subjects-result').textContent = 0;
     const avgSchoolSubjects = document.querySelectorAll('.counting-result-value');
     let avg = 0;
+    let number = 0;
     avgSchoolSubjects.forEach(item => {
         avg += Number(item.textContent)
-
-        document.querySelector('.average-of-all-subjects-result').textContent = (avg / avgSchoolSubjects.length).toFixed(2)
+        if (Number(item.textContent) > 0) {
+            number++
+        }
+        if ((avg / number).toFixed(2) > 0) {
+            document.querySelector('.average-of-all-subjects-result').textContent = (avg / number).toFixed(2)
+        }
+        else {
+            document.querySelector('.average-of-all-subjects-result').textContent = 0;
+        }
     })
     avg = 0;
-
-    
 }
 
-document.querySelector('.adding-selected-school-subjects-btn').addEventListener('click', choiceOfSchoolSubjects)
-
+document.querySelector('.adding-selected-school-subjects-btn').addEventListener('click', overallAverage)
