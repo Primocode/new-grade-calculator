@@ -114,6 +114,7 @@ const changeNameSchoolSubject = () => {
 document.querySelector('.changing-name-change').addEventListener('click', changeNameSchoolSubject);
 
 const cancelNameChange = () => {
+    document.querySelector('.changing-name-input').value = null;
     document.querySelector('.changing-the-name-of-school-subjects').classList.toggle('changing-the-name-of-school-subjects-active')
 }
 document.querySelector('.changing-name-cancel').addEventListener('click', cancelNameChange)
@@ -148,7 +149,6 @@ const permamentRemoval = () => {
     generatingSchoolItems();
     closingTheWindow();
 }
-
 document.querySelector('.remove').addEventListener('click', permamentRemoval);
 
 const addingAnItem = () => {
@@ -310,5 +310,35 @@ const overallAverage  = () => {
     })
     avg = 0;
 }
-
 document.querySelector('.adding-selected-school-subjects-btn').addEventListener('click', overallAverage)
+
+const openCloseForAddingSchoolSubjects = () => {
+    document.querySelectorAll('.selection-list-checkbox').forEach(item => {
+        item.disabled = false;
+    })
+
+    document.querySelectorAll('.selection-list-checkbox').forEach(item => {
+        if (values.schoolSubject.includes(item.dataset.nameschool)) {
+            item.disabled = true;
+        }
+    })
+
+    document.querySelector('.choice-of-school-subjects-container').classList.toggle('choice-of-school-subjects-container-active')
+}
+
+const addingItemsFromTheList = () => {
+    document.querySelectorAll('.selection-list-checkbox').forEach(item => {
+        if (item.checked) {
+            values.schoolSubject.push(item.dataset.nameschool)   
+        } 
+    })
+    generatingSchoolItems();
+    openCloseForAddingSchoolSubjects();
+    document.querySelectorAll('.selection-list-checkbox').forEach(item => {
+        item.checked = false;
+    })
+}
+document.querySelector('.selection-list-btn-add').addEventListener('click', addingItemsFromTheList)
+
+document.querySelector('.adding-selected-school-subjects-btn').addEventListener('click', openCloseForAddingSchoolSubjects);
+document.querySelector('.selection-list-btn-cancel').addEventListener('click', openCloseForAddingSchoolSubjects)

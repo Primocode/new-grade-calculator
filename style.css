@@ -89,10 +89,12 @@ body {
 }
 
 .changing-the-name-of-school-subjects {
+  overflow: auto;
   display: none;
 }
 
 .changing-the-name-of-school-subjects-active {
+  overflow: auto;
   display: block;
   z-index: 10;
   width: 100%;
@@ -189,6 +191,11 @@ body {
 }
 
 .choice-of-school-subjects-container {
+  display: none;
+}
+
+.choice-of-school-subjects-container-active {
+  z-index: 100;
   width: 100%;
   height: 100vh;
   position: fixed;
@@ -204,7 +211,7 @@ body {
           align-items: center;
 }
 
-.choice-of-school-subjects-container .choice-of-school-subjects {
+.choice-of-school-subjects-container-active .choice-of-school-subjects {
   height: 700px;
   max-width: 600px;
   background-color: white;
@@ -212,18 +219,18 @@ body {
   margin: 0px 10px 0px 10px;
 }
 
-.choice-of-school-subjects-container .choice-of-school-subjects h2 {
-  color: #3f3f3f;
+.choice-of-school-subjects-container-active .choice-of-school-subjects h2 {
+  color: #0099ff;
   text-align: center;
   margin: 10px 15px 10px 15px;
 }
 
-.choice-of-school-subjects-container .choice-of-school-subjects label {
+.choice-of-school-subjects-container-active .choice-of-school-subjects label {
   font-size: 24px;
   width: 150px;
 }
 
-.choice-of-school-subjects-container .choice-of-school-subjects .selection-list {
+.choice-of-school-subjects-container-active .choice-of-school-subjects .selection-list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -234,18 +241,49 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  color: #0099ff;
+  color: #424242;
   margin: 20px 40px 20px 40px;
 }
 
-.choice-of-school-subjects-container .choice-of-school-subjects .selection-list .selection-list-elements {
+.choice-of-school-subjects-container-active .choice-of-school-subjects .selection-list .selection-list-elements {
+  background-color: #2195f30c;
+  border-radius: 10px;
   margin: 2px 0px 2px 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.choice-of-school-subjects-container .choice-of-school-subjects .selection-list .selection-list-elements .selection-list-checkbox {
+.choice-of-school-subjects-container-active .choice-of-school-subjects .selection-list .selection-list-elements .selection-list-checkbox {
   cursor: pointer;
   font-size: 20px;
   width: 20px;
+  height: 20px;
+}
+
+.choice-of-school-subjects-container-active .choice-of-school-subjects .selection-list-btn-container {
+  margin-top: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.choice-of-school-subjects-container-active .choice-of-school-subjects .selection-list-btn-container .selection-list-btn {
+  border: none;
+  color: white;
+  font-size: 15px;
+  background-color: #0099ff;
+  padding: 5px 10px 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .adding-selected-school-subjects-content .adding-selected-school-subjects {
