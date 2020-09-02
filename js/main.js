@@ -37,9 +37,19 @@ const generatingSchoolItems = () => {
         removingASchoolSubject.dataset.name = schoolSubjectName;
         buttonContainer.appendChild(removingASchoolSubject);
 
+        const addingSchoolGradesDOM = document.createElement('div');
+        addingSchoolGradesDOM.className = "adding-school-grades";
+
+        table.appendChild(addingSchoolGradesDOM)
+
+
+
         const ratingAndWeight = document.createElement('div');
         ratingAndWeight.className = "rating-and-weight";
-        table.appendChild(ratingAndWeight);
+        addingSchoolGradesDOM.appendChild(ratingAndWeight);
+
+
+
 
         const schoolGradeValue = document.createElement('input');
         schoolGradeValue.className = "school-grade-value";
@@ -59,7 +69,7 @@ const generatingSchoolItems = () => {
         addingBtn.className = "adding-btn";
         addingBtn.dataset.which = schoolSubjectName;
         addingBtn.textContent = "+";
-        table.appendChild(addingBtn);
+        addingSchoolGradesDOM.appendChild(addingBtn);
 
         const countingResult = document.createElement('div');
         countingResult.className = "counting-result";
@@ -322,7 +332,6 @@ const openCloseForAddingSchoolSubjects = () => {
             item.disabled = true;
         }
     })
-
     document.querySelector('.choice-of-school-subjects-container').classList.toggle('choice-of-school-subjects-container-active')
 }
 
@@ -339,6 +348,5 @@ const addingItemsFromTheList = () => {
     })
 }
 document.querySelector('.selection-list-btn-add').addEventListener('click', addingItemsFromTheList)
-
 document.querySelector('.adding-selected-school-subjects-btn').addEventListener('click', openCloseForAddingSchoolSubjects);
 document.querySelector('.selection-list-btn-cancel').addEventListener('click', openCloseForAddingSchoolSubjects)

@@ -150,7 +150,6 @@ body {
     justify-content: center;
     align-items: center;
     .choice-of-school-subjects {
-        height: 700px;
         max-width: 600px;
         background-color: white;
         border-radius: 10px;
@@ -207,9 +206,11 @@ body {
 }
 
 .adding-selected-school-subjects-content {
-
+    max-width: 300px;
+    padding: 5px 15px 0px 15px;
+    display: flex;
+    justify-content: center;
     .adding-selected-school-subjects {
-        margin: 0px 0px 0px 10px;
         .adding-selected-school-subjects-btn {
             background-color: #0099ff;
             color: white;
@@ -226,34 +227,45 @@ body {
 .content {
     .table {
         display: flex;
+        flex-wrap: wrap;
         width: 100%;
-        padding: 5px 0px 5px 0px;
         align-items: center;
         .name-of-the-school-subject {
-            margin-left: 10px;
             display: flex;
             justify-content: space-between;
             background-color: #006CCB;
             color: white;
-            min-width: 300px;
+            min-width: 200px;
+            width: 300px;
+            max-width: 300px;
             padding: 15px;
             font-size: 19px;
             border-radius: 5px;
+            margin: 5px 0px 5px 10px;
+        }
+        @media (max-width: 360px) {
+            .name-of-the-school-subject {
+                margin: 5px 10px 5px 10px;
+            }
         }
         .button-container {
             display: flex;
+            align-items: center;
             .fa-pencil-alt {
                 font-size: 14px;
                 background-color: #02437D;
                 color: white;
                 border: none;
                 display: flex;
-                width: 25px;
                 justify-content: center;
                 cursor: pointer;
                 border-radius: 5px;
                 align-items: center;
                 margin: 0px 2px 0px 2px;
+                max-width: 25px;
+                max-height: 25px;
+                min-width: 25px;
+                min-height: 25px;
             }
             .fa-trash-alt {
                 font-size: 14px;
@@ -261,12 +273,15 @@ body {
                 color: white;
                 border: none;
                 display: flex;
-                width: 25px;
                 justify-content: center;
                 cursor: pointer;
                 border-radius: 5px;
                 align-items: center;
                 margin: 0px 2px 0px 2px;
+                max-width: 25px;
+                max-height: 25px;
+                min-width: 25px;
+                min-height: 25px;
             }
             .fa-trash-alt:hover {
                 background-color: #01325e;
@@ -276,11 +291,16 @@ body {
             }
         }
 
+
+        .adding-school-grades {
+            display: flex;
+        }
         .rating-and-weight {
             display: flex;
             flex-direction: column;
             width: 100px;
-            margin-left: 10px;
+            position: relative;
+            left: 10px;
             .school-grade-value {
                 border: none;
                 border: 2px solid #0099ff;
@@ -317,7 +337,7 @@ body {
             justify-content: center;
             align-items: center;
             position: relative;
-            right: 26px;
+            right: 11px;
         }
         .adding-btn:hover {
             background-color: #278ed2;
@@ -392,8 +412,8 @@ body {
 }
 
 .menu-bottom-content {
-    margin: 0px 10px 0px 10px;
-    width: fit-content;
+    max-width: 300px;
+    padding: 5px 15px 0px 15px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -413,7 +433,7 @@ body {
             height: 35px;
             font-size: 17px;
             border: none;
-            width: 210px;
+            width: 200px;
         }
         .adding-school-subjects-input::placeholder {
             text-align: center;
@@ -435,7 +455,6 @@ body {
     font-size: 17px;
     border-radius: 10px;
     padding: 10px;
-    width: 300px;
     .average-of-all-subjects-text {
         text-align: center;
         margin-bottom: 8px;

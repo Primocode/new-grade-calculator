@@ -212,7 +212,6 @@ body {
 }
 
 .choice-of-school-subjects-container-active .choice-of-school-subjects {
-  height: 700px;
   max-width: 600px;
   background-color: white;
   border-radius: 10px;
@@ -286,8 +285,15 @@ body {
   cursor: pointer;
 }
 
-.adding-selected-school-subjects-content .adding-selected-school-subjects {
-  margin: 0px 0px 0px 10px;
+.adding-selected-school-subjects-content {
+  max-width: 300px;
+  padding: 5px 15px 0px 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .adding-selected-school-subjects-content .adding-selected-school-subjects .adding-selected-school-subjects-btn {
@@ -304,15 +310,15 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   width: 100%;
-  padding: 5px 0px 5px 0px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
 
 .content .table .name-of-the-school-subject {
-  margin-left: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -321,16 +327,28 @@ body {
           justify-content: space-between;
   background-color: #006CCB;
   color: white;
-  min-width: 300px;
+  min-width: 200px;
+  width: 300px;
+  max-width: 300px;
   padding: 15px;
   font-size: 19px;
   border-radius: 5px;
+  margin: 5px 0px 5px 10px;
+}
+
+@media (max-width: 360px) {
+  .content .table .name-of-the-school-subject {
+    margin: 5px 10px 5px 10px;
+  }
 }
 
 .content .table .button-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .content .table .button-container .fa-pencil-alt {
@@ -341,7 +359,6 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 25px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -351,6 +368,10 @@ body {
       -ms-flex-align: center;
           align-items: center;
   margin: 0px 2px 0px 2px;
+  max-width: 25px;
+  max-height: 25px;
+  min-width: 25px;
+  min-height: 25px;
 }
 
 .content .table .button-container .fa-trash-alt {
@@ -361,7 +382,6 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 25px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -371,6 +391,10 @@ body {
       -ms-flex-align: center;
           align-items: center;
   margin: 0px 2px 0px 2px;
+  max-width: 25px;
+  max-height: 25px;
+  min-width: 25px;
+  min-height: 25px;
 }
 
 .content .table .button-container .fa-trash-alt:hover {
@@ -379,6 +403,12 @@ body {
 
 .content .table .button-container .fa-pencil-alt:hover {
   background-color: #01325e;
+}
+
+.content .table .adding-school-grades {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .content .table .rating-and-weight {
@@ -390,7 +420,8 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 100px;
-  margin-left: 10px;
+  position: relative;
+  left: 10px;
 }
 
 .content .table .rating-and-weight .school-grade-value {
@@ -449,7 +480,7 @@ body {
       -ms-flex-align: center;
           align-items: center;
   position: relative;
-  right: 26px;
+  right: 11px;
 }
 
 .content .table .adding-btn:hover {
@@ -555,10 +586,8 @@ body {
 }
 
 .menu-bottom-content {
-  margin: 0px 10px 0px 10px;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
+  max-width: 300px;
+  padding: 5px 15px 0px 15px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -595,7 +624,7 @@ body {
   height: 35px;
   font-size: 17px;
   border: none;
-  width: 210px;
+  width: 200px;
 }
 
 .adding-school-subjects .adding-school-subjects-container .adding-school-subjects-input::-webkit-input-placeholder {
@@ -629,7 +658,6 @@ body {
   font-size: 17px;
   border-radius: 10px;
   padding: 10px;
-  width: 300px;
 }
 
 .average-of-all-subjects .average-of-all-subjects-text {
