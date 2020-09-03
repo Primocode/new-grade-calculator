@@ -76,6 +76,7 @@ const generatingSchoolItems = () => {
     document.querySelectorAll('.fa-pencil-alt').forEach(item => item.addEventListener('click', changeNameSchoolSubjectIcon))
     document.querySelectorAll('.fa-trash-alt').forEach(item => item.addEventListener('click', removalOfSchoolItems));
     addingATile();
+    setLocalStorage();
 }
 
 const deletingAllAddedSchoolItems = () => {
@@ -209,6 +210,7 @@ const addingATile = () => {
     })
     document.querySelectorAll('.removing-school-grades').forEach(item => item.addEventListener('click', deletingSchoolGrades
     ));
+    setLocalStorage();
     countingTheWeightedAverage();
     callForAddingSchoolGrades();
 }
@@ -248,7 +250,6 @@ const addingSchoolGrades = () => {
                 values.whichSchoolSubject.push(event.target.dataset.which);
                 values.schoolGrade.push(schoolGradeValue);
                 values.weightSchoolGrade.push(schoolWeight);
-
                 values.schoolGradeID.push(Math.random().toString(36).substring(7));
                 
                 document.querySelector(`[data-which-school-grade="${event.target.dataset.which}"]`).value = null;
@@ -358,3 +359,28 @@ const analysisValueSchoolGrades = () => {
         }
     })
 }
+
+const setLocalStorage = () => {
+    localStorage.removeItem("values");
+    localStorage.setItem("values", JSON.stringify(values));
+}
+
+const loadLocalStorage = () => {
+    let storageValues = JSON.parse(localStorage.getItem("values"));
+    values.schoolGrade = storageValues.schoolGrade;
+    values.schoolGradeID = storageValues.schoolGradeID;
+    values.schoolSubject = storageValues.schoolSubject;
+    values.weightSchoolGrade = storageValues.weightSchoolGrade;
+    values.whichSchoolSubject = storageValues.whichSchoolSubject;
+}
+
+const overload = () => {
+    if (!window.localStorage.getItem("values")) {
+        localStorage.setItem("values", JSON.stringify(values));
+    }
+    loadLocalStorage();
+    generatingSchoolItems();
+    addingATile();
+}
+
+overload();

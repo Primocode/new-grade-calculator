@@ -357,6 +357,10 @@ body {
   margin: 5px 0px 5px 10px;
 }
 
+.content .table .name-of-the-school-subject h3 {
+  max-width: 242px;
+}
+
 @media (max-width: 360px) {
   .content .table .name-of-the-school-subject {
     margin: 5px 10px 5px 10px;
