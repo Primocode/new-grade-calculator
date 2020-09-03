@@ -745,6 +745,10 @@ body {
   font-size: 14px;
 }
 
+.analysis-number-grades-container .analysis-number-grades .analysis-grade-quantity {
+  color: #808080;
+}
+
 .analysis-number-grades-container .analysis-number-grades .analysis-grade-value {
   margin: 0px 10px 0px 10px;
 }

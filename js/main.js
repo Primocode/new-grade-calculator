@@ -39,17 +39,11 @@ const generatingSchoolItems = () => {
 
         const addingSchoolGradesDOM = document.createElement('div');
         addingSchoolGradesDOM.className = "adding-school-grades";
-
         table.appendChild(addingSchoolGradesDOM)
-
-
 
         const ratingAndWeight = document.createElement('div');
         ratingAndWeight.className = "rating-and-weight";
         addingSchoolGradesDOM.appendChild(ratingAndWeight);
-
-
-
 
         const schoolGradeValue = document.createElement('input');
         schoolGradeValue.className = "school-grade-value";
@@ -319,6 +313,7 @@ const overallAverage  = () => {
         }
     })
     avg = 0;
+    analysisValueSchoolGrades();
 }
 document.querySelector('.adding-selected-school-subjects-btn').addEventListener('click', overallAverage)
 
@@ -347,11 +342,19 @@ const addingItemsFromTheList = () => {
         item.checked = false;
     })
 }
-document.querySelector('.selection-list-btn-add').addEventListener('click', addingItemsFromTheList)
+document.querySelector('.selection-list-btn-add').addEventListener('click', addingItemsFromTheList);
 document.querySelector('.adding-selected-school-subjects-btn').addEventListener('click', openCloseForAddingSchoolSubjects);
-document.querySelector('.selection-list-btn-cancel').addEventListener('click', openCloseForAddingSchoolSubjects)
+document.querySelector('.selection-list-btn-cancel').addEventListener('click', openCloseForAddingSchoolSubjects);
 
-// document.querySelectorAll('.selection-list-checkbox').forEach(item => {
-//     console.log(item.dataset.nameschool.includes("Informatyka"))
-// })
-
+const analysisValueSchoolGrades = () => {
+    analysisTiles = document.querySelectorAll(`[data-gradevalue]`)
+    let indexes = values.schoolGrade.reduce(function(a,e,i){try{a[e].push(i)}catch(_){a[e]=[i]};return a},{});
+    analysisTiles.forEach(item => {
+        if (indexes[item.dataset.gradevalue]) {
+            item.textContent = indexes[item.dataset.gradevalue].length;
+        }
+        else {
+            item.textContent = 0;
+        }
+    })
+}
