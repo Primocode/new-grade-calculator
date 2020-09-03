@@ -350,3 +350,8 @@ const addingItemsFromTheList = () => {
 document.querySelector('.selection-list-btn-add').addEventListener('click', addingItemsFromTheList)
 document.querySelector('.adding-selected-school-subjects-btn').addEventListener('click', openCloseForAddingSchoolSubjects);
 document.querySelector('.selection-list-btn-cancel').addEventListener('click', openCloseForAddingSchoolSubjects)
+
+// document.querySelectorAll('.selection-list-checkbox').forEach(item => {
+//     console.log(item.dataset.nameschool.includes("Informatyka"))
+// })
+

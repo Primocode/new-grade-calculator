@@ -21,6 +21,7 @@ body {
   text-align: left;
   z-index: 100;
   padding: 15px;
+  right: 0;
 }
 
 .notification {
@@ -128,6 +129,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  text-align: center;
 }
 
 .changing-the-name-of-school-subjects-active .changing-the-name-of-school-subjects-container h2 {
@@ -143,6 +145,11 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .changing-the-name-of-school-subjects-active .changing-the-name-of-school-subjects-container .changing-button-container input {
@@ -190,6 +197,12 @@ body {
   background-color: #0072bd;
 }
 
+@media (max-width: 430px) {
+  .changing-the-name-of-school-subjects-active .changing-the-name-of-school-subjects-container {
+    padding: 20px 20px 20px 20px;
+  }
+}
+
 .choice-of-school-subjects-container {
   display: none;
 }
@@ -212,10 +225,12 @@ body {
 }
 
 .choice-of-school-subjects-container-active .choice-of-school-subjects {
+  height: 100vh;
   max-width: 600px;
+  overflow: auto;
   background-color: white;
   border-radius: 10px;
-  margin: 0px 10px 0px 10px;
+  margin: 10px 10px 0px 10px;
 }
 
 .choice-of-school-subjects-container-active .choice-of-school-subjects h2 {
@@ -247,7 +262,7 @@ body {
 .choice-of-school-subjects-container-active .choice-of-school-subjects .selection-list .selection-list-elements {
   background-color: #2195f30c;
   border-radius: 10px;
-  margin: 2px 0px 2px 0px;
+  margin: 3px 0px 3px 0px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -263,6 +278,12 @@ body {
   font-size: 20px;
   width: 20px;
   height: 20px;
+}
+
+@media (max-width: 350px) {
+  .choice-of-school-subjects-container-active .choice-of-school-subjects {
+    margin: 20px;
+  }
 }
 
 .choice-of-school-subjects-container-active .choice-of-school-subjects .selection-list-btn-container {
@@ -679,5 +700,52 @@ body {
           align-items: center;
   font-size: 20px;
   border-radius: 5px;
+}
+
+.analysis-number-grades-container .analysis-number-grades {
+  margin: 10px 10px 0px 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 200px;
+  height: 50px;
+  -webkit-box-shadow: 0px 0px 10px 0px #e2e2e2;
+  box-shadow: 0px 0px 10px 0px #e2e2e2;
+  border-radius: 10px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.analysis-number-grades-container .analysis-number-grades .analysis-container {
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 40px;
+  width: 55px;
+  position: relative;
+  right: 10px;
+  -webkit-box-shadow: 0px 0px 10px 0px #eaeaea;
+  box-shadow: 0px 0px 10px 0px #eaeaea;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.analysis-number-grades-container .analysis-number-grades .analysis-grade-value {
+  margin: 0px 10px 0px 10px;
 }
 /*# sourceMappingURL=style.css.map */

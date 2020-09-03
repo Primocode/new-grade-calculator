@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Kalkulator liczenia średniej ocen szkolnych</title>
 
     <link rel="stylesheet" href="style.css">
 
@@ -31,8 +31,10 @@
             <p class="changing-name-school-subjects-text"></p>
             <div class="changing-button-container">
                 <input type="text" class="changing-name-input" placeholder="Podaj nową nazwę">
-                <button class="changing-name-change">Zmień</button>
-                <button class="changing-name-cancel">Anuluj</button>
+                <div class="changing-button-content">
+                    <button class="changing-name-change">Zmień</button>
+                    <button class="changing-name-cancel">Anuluj</button>
+                </div>
             </div>
             <p class="changing-name-school-subjects-error"></p>
         </div>
@@ -109,6 +111,34 @@
                     <label>Wychowanie fizyczne</label>
                     <input type="checkbox" data-nameschool="Wychowanie fizyczne" class="selection-list-checkbox">
                 </div>
+                <div class="selection-list-elements">
+                    <label>Gimnastyka</label>
+                    <input type="checkbox" data-nameschool="Gimnastyka" class="selection-list-checkbox">
+                </div>
+                <div class="selection-list-elements">
+                    <label>Język francuski</label>
+                    <input type="checkbox" data-nameschool="Język francuski" class="selection-list-checkbox">
+                </div>
+                <div class="selection-list-elements">
+                    <label>Język rosyjski</label>
+                    <input type="checkbox" data-nameschool="Język rosyjski" class="selection-list-checkbox">
+                </div>
+                <div class="selection-list-elements">
+                    <label>Język hiszpański</label>
+                    <input type="checkbox" data-nameschool="Język hiszpański" class="selection-list-checkbox">
+                </div>
+                <div class="selection-list-elements">
+                    <label>Technika</label>
+                    <input type="checkbox" data-nameschool="Technika" class="selection-list-checkbox">
+                </div>
+                <div class="selection-list-elements">
+                    <label>Wychowanie do życia w rodzinie</label>
+                    <input type="checkbox" data-nameschool="Wychowanie do życia w rodzinie" class="selection-list-checkbox">
+                </div>
+                <div class="selection-list-elements">
+                    <label>Informatyka</label>
+                    <input type="checkbox" data-nameschool="Informatyka" class="selection-list-checkbox">
+                </div>
                 <div class="selection-list-btn-container">
                     <button class="selection-list-btn-cancel selection-list-btn">Anuluj</button>
                     <button class="selection-list-btn-add selection-list-btn">Dodaj wybrane</button>
@@ -142,7 +172,54 @@
             </section>
         </section>
         <section class="analysis-number-grades-container">
-            <div class="analysis-number-grades"></div>
+            <div class="analysis-number-grades">
+                <div class="analysis-container" style="background-color: #D44242;">
+                    <span class="analysis-grade-text">ocena</span>
+                    <span class="analysis-grade-number">1</span>
+                </div>
+                <span class="analysis-grade-quantity" >ilość ocen</span>
+                <span class="analysis-grade-value" style="color: #D44242;">0</span>
+            </div>
+            <div class="analysis-number-grades">
+                <div class="analysis-container" style="background-color: #7F5CB4;">
+                    <span class="analysis-grade-text">ocena</span>
+                    <span class="analysis-grade-number">1</span>
+                </div>
+                <span class="analysis-grade-quantity">ilość ocen</span>
+                <span class="analysis-grade-value" style="color: #7F5CB4;">0</span>
+            </div>
+            <div class="analysis-number-grades">
+                <div class="analysis-container" style="background-color: #E8B200;">
+                    <span class="analysis-grade-text">ocena</span>
+                    <span class="analysis-grade-number">1</span>
+                </div>
+                <span class="analysis-grade-quantity">ilość ocen</span>
+                <span class="analysis-grade-value" style="color: #E8B200;">0</span>
+            </div>
+            <div class="analysis-number-grades">
+                <div class="analysis-container" style="background-color: #00A1E8;">
+                    <span class="analysis-grade-text">ocena</span>
+                    <span class="analysis-grade-number">1</span>
+                </div>
+                <span class="analysis-grade-quantity">ilość ocen</span>
+                <span class="analysis-grade-value" style="color: #00A1E8;">0</span>
+            </div>
+            <div class="analysis-number-grades">
+                <div class="analysis-container" style="background-color: #6BAB4C;">
+                    <span class="analysis-grade-text">ocena</span>
+                    <span class="analysis-grade-number">1</span>
+                </div>
+                <span class="analysis-grade-quantity">ilość ocen</span>
+                <span class="analysis-grade-value" style="color: #6BAB4C;">0</span>
+            </div>
+            <div class="analysis-number-grades">
+                <div class="analysis-container" style="background-color: #16D900;">
+                    <span class="analysis-grade-text">ocena</span>
+                    <span class="analysis-grade-number">1</span>
+                </div>
+                <span class="analysis-grade-quantity">ilość ocen</span>
+                <span class="analysis-grade-value" style="color: #16D900;">0</span>
+            </div>
         </section>
     </main>
 
