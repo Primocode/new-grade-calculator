@@ -290,12 +290,13 @@ const callForAddingSchoolGrades = () => {
 }
 
 const errorMessage = (mess) => {
-    const message = document.querySelector('.message');
-    message.style.display = "block";
-    message.textContent = mess;
-	setTimeout(function(){ 
-		message.style.display = "none";
-	}, 2500);
+    const messageElement = document.createElement('div');
+    messageElement.className = "message";
+    document.querySelector('body').before(messageElement);
+    messageElement.textContent = mess;
+    setTimeout(function() {
+        messageElement.remove();
+    }, 2500);
 }
 
 const overallAverage  = () => {
