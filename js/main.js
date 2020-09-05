@@ -94,19 +94,20 @@ const changeNameSchoolSubjectIcon = () => {
 const changeNameSchoolSubject = () => {
     const nameSchoolSubjectChange = document.querySelector('.changing-name-change').dataset.name;
     const changeNameValue = document.querySelector('.changing-name-input').value;
+
     let indexes = values.whichSchoolSubject.reduce(function(a,e,i){try{a[e].push(i)}catch(_){a[e]=[i]};return a},{});
 
-    if (changeNameValue != "") {
-        if (values.schoolSubject.includes(changeNameValue)) {
+    if (changeNameValue.replaceAll(" ", "") != "") {
+        if (values.schoolSubject.includes(changeNameValue.toLowerCase())) {
             errorMessage("Taka nazwa przedmiotu już istnieje");
         }
         else {
             if (values.whichSchoolSubject.includes(nameSchoolSubjectChange)) {
                 indexes[nameSchoolSubjectChange].forEach(item => {
-                    values.whichSchoolSubject.splice(item, 1, changeNameValue);
+                    values.whichSchoolSubject.splice(item, 1, changeNameValue.toLowerCase());
                 })
             }
-            values.schoolSubject.splice(values.schoolSubject.indexOf(nameSchoolSubjectChange), 1, changeNameValue);
+            values.schoolSubject.splice(values.schoolSubject.indexOf(nameSchoolSubjectChange), 1, changeNameValue.toLowerCase());
             cancelNameChange();
             document.querySelector('.changing-name-input').value = null;
             generatingSchoolItems();
@@ -158,12 +159,13 @@ document.querySelector('.remove').addEventListener('click', permamentRemoval);
 
 const addingAnItem = () => {
     const schoolSubjectValue = document.querySelector('.adding-school-subjects-input').value;
-    if (schoolSubjectValue.length >= 1) {
+
+    if (schoolSubjectValue.replaceAll(" ", "").length >= 1) {
         if (values.schoolSubject.includes(schoolSubjectValue)) {
             errorMessage("Nazwa tego przedmiotu została już dodana");
         }   
         else {
-            values.schoolSubject.push(schoolSubjectValue);
+            values.schoolSubject.push(schoolSubjectValue.toLowerCase());
             document.querySelector(".adding-school-subjects-input").value = null;
             generatingSchoolItems();
             countingTheWeightedAverage();

@@ -262,7 +262,7 @@ body {
 .choice-of-school-subjects-container-active .choice-of-school-subjects .selection-list .selection-list-elements {
   background-color: #2195f30c;
   border-radius: 10px;
-  margin: 3px 0px 3px 0px;
+  margin: 5px 0px 5px 0px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
