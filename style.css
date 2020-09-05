@@ -230,7 +230,7 @@ body {
   overflow: auto;
   background-color: white;
   border-radius: 10px;
-  margin: 10px;
+  margin: 0px 10px 0px 10px;
 }
 
 .choice-of-school-subjects-container-active .choice-of-school-subjects h2 {
