@@ -152,14 +152,14 @@ body {
 .choice-of-school-subjects-container-active {
     z-index: 100;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     position: fixed;
     background-color: rgba(0, 0, 0, 0.555);
     display: flex;
     justify-content: center;
     align-items: center;
     .choice-of-school-subjects {
-        height: 96%;
+        height: 100%;
         max-width: 600px;
         overflow: auto;
         background-color: white;
