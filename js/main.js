@@ -98,7 +98,7 @@ const changeNameSchoolSubject = () => {
 
     if (changeNameValue != "") {
         if (values.schoolSubject.includes(changeNameValue)) {
-            errorMessage("Taka nazwa przedmiotu już jest");
+            errorMessage("Taka nazwa przedmiotu już istnieje");
         }
         else {
             if (values.whichSchoolSubject.includes(nameSchoolSubjectChange)) {
@@ -140,13 +140,13 @@ const permamentRemoval = () => {
     let indexes = values.whichSchoolSubject.reduce(function(a,e,i){try{a[e].push(i)}catch(_){a[e]=[i]};return a},{});
     const nameOfTheSchoolSubject = document.querySelector('.remove').dataset.nameToBeDeleted;
     if (indexes[nameOfTheSchoolSubject]) {
+        let indexes = values.whichSchoolSubject.reduce(function(a,e,i){try{a[e].push(i)}catch(_){a[e]=[i]};return a},{});
         indexes[nameOfTheSchoolSubject].forEach(item => {
-            let indexes = values.whichSchoolSubject.reduce(function(a,e,i){try{a[e].push(i)}catch(_){a[e]=[i]};return a},{});
-            let index = indexes[nameOfTheSchoolSubject]
-            values.schoolGradeID.splice(index, 1);
-            values.schoolGrade.splice(index, 1);
-            values.weightSchoolGrade.splice(index, 1);
-            values.whichSchoolSubject.splice(index, 1);
+            let whichIndexValue = values.whichSchoolSubject.indexOf(nameOfTheSchoolSubject);
+            values.schoolGradeID.splice(whichIndexValue, 1);
+            values.schoolGrade.splice(whichIndexValue, 1);
+            values.weightSchoolGrade.splice(whichIndexValue, 1);
+            values.whichSchoolSubject.splice(whichIndexValue, 1);
             addingATile();
         })
     }
@@ -165,13 +165,13 @@ const addingAnItem = () => {
         else {
             values.schoolSubject.push(schoolSubjectValue);
             document.querySelector(".adding-school-subjects-input").value = null;
+            generatingSchoolItems();
+            countingTheWeightedAverage();
         }
     }
     else {
         errorMessage("Nazwa przedmiotu szkolnego nie może być pusta");
     }
-    generatingSchoolItems();
-    countingTheWeightedAverage();
 }
 document.querySelector('.adding-school-subjects-btn').addEventListener('click', addingAnItem);
 
@@ -238,27 +238,27 @@ const addingSchoolGrades = () => {
     if (schoolGradeValue.length <= 0 || schoolWeight <= 0) {
         errorMessage("Ocena ani waga nie mogą pozostać puste");
     }
+    else if (schoolGradeValue > 6 || schoolGradeValue <= 0) {
+        errorMessage("Ocena nie może być mniejsza od 1 ani większa od 6");
+    }
+    else if (schoolWeight > 99 || schoolWeight <= 0) {
+        errorMessage("Waga nie może być mniejsza od 1 ani większa od 99");
+    }
     else {
-        if (schoolGradeValue > 6 || schoolGradeValue <= 0) {
-            errorMessage("Ocena nie może być mniejsza od 1 ani większa od 6");
+        values.whichSchoolSubject.push(event.target.dataset.which);
+        values.schoolGrade.push(schoolGradeValue);
+        values.weightSchoolGrade.push(schoolWeight);
+        let schoolGradeIDValue = Math.random().toString(36).substring(5);
+        if (values.schoolGradeID.includes(schoolGradeIDValue)) {
+            values.schoolGradeID.push(Math.random().toString(36).substring(4));
         }
         else {
-            if (schoolWeight > 99 || schoolWeight <= 0) {
-                errorMessage("Waga nie może być mniejsza od 1 ani większa od 99");
-            }
-            else {
-                values.whichSchoolSubject.push(event.target.dataset.which);
-                values.schoolGrade.push(schoolGradeValue);
-                values.weightSchoolGrade.push(schoolWeight);
-                values.schoolGradeID.push(Math.random().toString(36).substring(7));
-                
-                document.querySelector(`[data-which-school-grade="${event.target.dataset.which}"]`).value = null;
-                document.querySelector(`[data-which-weight="${event.target.dataset.which}"]`).value = null;
-
-                addingATile();
-                countingTheWeightedAverage();
-            }
+            values.schoolGradeID.push(schoolGradeIDValue);
         }
+        document.querySelector(`[data-which-school-grade="${event.target.dataset.which}"]`).value = null;
+        document.querySelector(`[data-which-weight="${event.target.dataset.which}"]`).value = null;
+        addingATile();
+        countingTheWeightedAverage();
     }
 }
 
