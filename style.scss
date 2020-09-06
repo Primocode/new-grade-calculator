@@ -254,6 +254,7 @@ body {
             margin: 5px 0px 5px 10px;
             h3 {
                 max-width: 242px;
+                word-wrap: break-word;
             }
         }
         @media (max-width: 360px) {
