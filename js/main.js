@@ -248,8 +248,8 @@ const addingSchoolGrades = () => {
     }
     else {
         values.whichSchoolSubject.push(event.target.dataset.which);
-        values.schoolGrade.push(schoolGradeValue);
-        values.weightSchoolGrade.push(schoolWeight);
+        values.schoolGrade.push(parseInt(schoolGradeValue));
+        values.weightSchoolGrade.push(parseInt(schoolWeight));
         let schoolGradeIDValue = Math.random().toString(36).substring(5);
         if (values.schoolGradeID.includes(schoolGradeIDValue)) {
             values.schoolGradeID.push(Math.random().toString(36).substring(4));

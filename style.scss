@@ -311,20 +311,24 @@ body {
         .rating-and-weight {
             display: flex;
             flex-direction: column;
-            width: 100px;
+            width: 80px;
             position: relative;
             left: 10px;
             .school-grade-value {
+                text-align: center;
                 border: none;
                 border: 2px solid #0099ff;
                 height: 50%;
-                text-align: center;
                 font-size: 15px;
                 background-color: #80ccff9c;
             }
+            input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
             .weight-of-the-rating-value {
-                font-size: 15px;
                 text-align: center;
+                font-size: 15px;
                 border: none;
                 height: 50%;
                 border: 1px 2px 0px 1px solid #0099ff;
@@ -335,6 +339,8 @@ body {
             }
             input::placeholder {
                 color: #006CCB;
+                text-align: left;
+                padding-left: 10px;
             }
         }
         .adding-btn {
