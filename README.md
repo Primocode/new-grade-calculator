@@ -1,6 +1,18 @@
 ﻿# Kalkulator ocen szkolnych
-Głownym celem kalkulatora jest ułatwienie liczenia średniej przedmiotów szkolnych. Narzędzie pozwala na dodawanie przedmiotów szkolnych, edytowanie ich, usuwanie, dodawanie do nich ocen, oraz usuwanie ocen. Po dodaniu ocen automatycznie obliczana jest ich średnia.
-Jest też opcja dodawania przedmiotów szkolnych z listy, wystarczy kliknąć na przycisk po czym wybrać z listy interesujące nas przedmioty.
-Na dole jest podliczanie ilości danych ocen. 
+Aplikacja do intuicyjnego i prostego liczenia średniej ocen przedmiotów szkolnych.
+
+## Cel projektu
+Głównym celem aplikacji jest jak najłatwiejsze i najszybsze liczenie średniej przedmiotów szkolnych.
+
+## Technologie 
+HTML5 CSS, SCSS, JavaScript
+
+## Zakres funkcjonalności
+Narzędzie pozwala na dodawanie przedmiotów szkolnych, wraz z możliwością ich edycji oraz bezpośredniego usunięcia, do przedmiotów szkolnych można dodawać oceny wraz z wagą, które również można bezpośrednio usunąć. Jest przycisk który umożliwia wybranie z listy przedmiotów szkolnych - po zaznaczenie i zaakceptowaniu zmian zostaną one odrazu dodane.
+Aplikacja automatycznie liczy średnią przedmiotów szkolnych, oraz średnią ogólną.
+Aplikacja umożliwia również podliczanie ilości danych ocen.
+
+## Link do aplikacji
+https://primocode.github.io/new-school-grades-calculator/
 
 ![image](https://github.com/Primocode/new-school-grades-calculator/blob/master/liczenie-sredniej-ocen.png)
