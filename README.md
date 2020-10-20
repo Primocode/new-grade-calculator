@@ -1,5 +1,5 @@
 ﻿# Kalkulator ocen szkolnych
-Aplikacja do intuicyjnego i prostego liczenia średniej ocen przedmiotów szkolnych.
+Aplikacja stworzona do intuicyjnego i prostego liczenia średniej ocen przedmiotów szkolnych.
 
 ## Cel projektu
 Głównym celem aplikacji jest jak najłatwiejsze i najszybsze liczenie średniej przedmiotów szkolnych.
